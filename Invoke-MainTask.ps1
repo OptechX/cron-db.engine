@@ -44,7 +44,7 @@ foreach ($r in $RELEASE)
             "$URL"
             $FILE = Split-Path -Path $URL.Split('?')[0] -Leaf
             $FILE
-            Invoke-WebRequest -Uri $URL -OutFile "./data/${FILE}" -UseBasicParsing -SslProtocol Tls13 -Method Get -ContentType "application/json"
+            # Invoke-WebRequest -Uri $URL -OutFile "./data/${FILE}" -UseBasicParsing -SslProtocol Tls13 -Method Get -ContentType "application/json"
             Pause
         }
     }
