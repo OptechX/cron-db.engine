@@ -40,7 +40,8 @@ foreach ($r in $RELEASE)
         foreach ($a in $DATA.$r.$e.'ARCH')
         {
             Write-Output "Downloading: ${KEY} ${r} ${e} ${a} - English"
-            $URL = & "$PSScriptRoot/Fido/Fido.ps1" -Win "$KEY" -Rel "$r" -Ed "$e" -Lang "English" -Arch "$a" -GetUrl
+            if ($IsWindows) { $URL = & "$PSScriptRoot\Fido\Fido.ps1" -Win "$KEY" -Rel "$r" -Ed "$e" -Lang "English" -Arch "$a" -GetUrl }
+            else { $URL = & "$PSScriptRoot/Fido/Fido.ps1" -Win "$KEY" -Rel "$r" -Ed "$e" -Lang "English" -Arch "$a" -GetUrl }
             "$URL"
             $FILE = Split-Path -Path $URL.Split('?')[0] -Leaf
             $FILE
