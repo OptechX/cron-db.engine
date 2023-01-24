@@ -8,8 +8,10 @@
     "Windows 11": {
         "RELEASE": ["22H2","21H2"],
         "22H2": {
-            "EDITION": ["Windows 11 Home/Pro/Edu"],
-            "Windows 11 Home/Pro/Edu": {
+            "EDITION": ["Home/Pro/Edu"],
+            "Home/Pro/Edu": {
+                "EOL": "2024-08-10",
+                "BUILD": "22621.525",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -54,8 +56,10 @@
             }
         },
         "21H2": {
-            "EDITION": ["Windows 11 Home/Pro/Edu"],
-            "Windows 11 Home/Pro/Edu": {
+            "EDITION": ["Home/Pro/Edu"],
+            "Home/Pro/Edu": {
+                "EOL": "2023-10-10",
+                "BUILD": "22000.194",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -103,8 +107,10 @@
     "Windows 10": {
         "RELEASE": ["22H2","21H2","21H1","20H2","20H1","19H2","19H1"],
         "22H2": {
-            "EDITION": ["Windows 10 Home/Pro/Edu"],
-            "Windows 10 Home/Pro/Edu": {
+            "EDITION": ["Home/Pro/Edu"],
+            "Home/Pro/Edu": {
+                "EOL": "2024-05-14",
+                "BUILD": "19045.2006",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -149,8 +155,10 @@
             }
         },
         "21H2": {
-            "EDITION": ["Windows 10 Home/Pro/Edu"],
-            "Windows 10 Home/Pro/Edu": {
+            "EDITION": ["Home/Pro/Edu"],
+            "Home/Pro/Edu": {
+                "EOL": "2023-06-13",
+                "BUILD": "19044.1288",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -195,8 +203,10 @@
             }
         },
         "21H1": {
-            "EDITION": ["Windows 10 Home/Pro","Windows 10 Education"],
-            "Windows 10 Home/Pro": {
+            "EDITION": ["Home/Pro","Education"],
+            "Home/Pro": {
+                "EOL": "2022-12-13",
+                "BUILD": "19043.985",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -239,7 +249,9 @@
                 ],
                 "ARCH": ["x64", "x86"]       
             },
-            "Windows 10 Education": {
+            "Education": {
+                "EOL": "2022-12-13",
+                "BUILD": "19043.985",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -284,8 +296,10 @@
             }
         },
         "20H2": {
-            "EDITION": ["Windows 10 Home/Pro","Windows 10 Education"],
-            "Windows 10 Home/Pro": {
+            "EDITION": ["Home/Pro","Education"],
+            "Home/Pro": {
+                "EOL": "",
+                "BUILD": "",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -328,7 +342,9 @@
                 ],
                 "ARCH": ["x64", "x86"]         
             },
-            "Windows 10 Education": {
+            "Education": {
+                "EOL": "",
+                "BUILD": "",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -373,8 +389,10 @@
             }
         },
         "20H1": {
-            "EDITION": ["Windows 10 Home/Pro","Windows 10 Education"],
-            "Windows 10 Home/Pro": {
+            "EDITION": ["Home/Pro","Education"],
+            "Home/Pro": {
+                "EOL": "",
+                "BUILD": "",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -417,7 +435,9 @@
                 ],
                 "ARCH": ["x64", "x86"]          
             },
-            "Windows 10 Education": {
+            "Education": {
+                "EOL": "",
+                "BUILD": "",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -462,8 +482,10 @@
             }
         },
         "19H2": {
-            "EDITION": ["Windows 10 Home/Pro","Windows 10 Education"],
-            "Windows 10 Home/Pro": {
+            "EDITION": ["Home/Pro","Education"],
+            "Home/Pro": {
+                "EOL": "",
+                "BUILD": "",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -506,7 +528,9 @@
                 ],
                 "ARCH": ["x64", "x86"]         
             },
-            "Windows 10 Education": {
+            "Education": {
+                "EOL": "",
+                "BUILD": "",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -551,8 +575,10 @@
             }
         },
         "19H1": {
-            "EDITION": ["Windows 10 Home/Pro","Windows 10 Education"],
-            "Windows 10 Home/Pro": {
+            "EDITION": ["Home/Pro","Education"],
+            "Home/Pro": {
+                "EOL": "",
+                "BUILD": "",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -595,7 +621,9 @@
                 ],
                 "ARCH": ["x64", "x86"]       
             },
-            "Windows 10 Education": {
+            "Education": {
+                "EOL": "",
+                "BUILD": "",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -643,8 +671,10 @@
     "Windows 8.1": {
         "RELEASE": ["Update 3"],
         "Update 3": {
-            "EDITION": ["Windows 8.1 Standard","Windows 8.1 N", "Windows 8.1 Single LANGuage"],
-            "Windows 8.1 Standard": {
+            "EDITION": ["Standard","N", "Single Language"],
+            "Standard": {
+                "EOL": "",
+                "BUILD": "",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -685,7 +715,9 @@
                 ],
                 "ARCH": ["x64", "x86"]
             },
-            "Windows 8.1 N": {
+            "N": {
+                "EOL": "",
+                "BUILD": "",
                 "LANG": [
                     "Bulgarian",
                     "Croatian",
@@ -714,7 +746,9 @@
                 ],
                 "ARCH": ["x64", "x86"]
             },
-            "Windows 8.1 Single LANGuage": {
+            "Single Language": {
+                "EOL": "",
+                "BUILD": "",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -735,16 +769,22 @@
     "Windows 7": {
         "RELEASE": ["with SP1"],
         "with SP1": {
-            "EDITION": ["Windows 7 Ultimate","Windows 7 Professional", "Windows 7 Home Premium"],
-            "Windows 7 Ultimate": {
+            "EDITION": ["Ultimate","Professional", "Home Premium"],
+            "Ultimate": {
+                "EOL": "2020-01-14",
+                "BUILD": "7601.24214.180801-1700",
                 "LANG": ["en-us"],
                 "ARCH": ["x64", "x86"]
             },
-            "Windows 7 Professional": {
+            "Professional": {
+                "EOL": "2020-01-14",
+                "BUILD": "7601.24214.180801-1700",
                 "LANG": ["en-us"],
                 "ARCH": ["x64", "x86"]
             },
-            "Windows 7 Home Premium": {
+            "Home Premium": {
+                "EOL": "2020-01-14",
+                "BUILD": "7601.24214.180801-1700",
                 "LANG": ["en-us"],
                 "ARCH": ["x64", "x86"]
             }
