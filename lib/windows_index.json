@@ -673,8 +673,8 @@
         "Update 3": {
             "EDITION": ["Standard","N", "Single Language"],
             "Standard": {
-                "EOL": "",
-                "BUILD": "",
+                "EOL": "2016-01-12",
+                "BUILD": "9600",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -716,8 +716,8 @@
                 "ARCH": ["x64", "x86"]
             },
             "N": {
-                "EOL": "",
-                "BUILD": "",
+                "EOL": "2016-01-12",
+                "BUILD": "9600",
                 "LANG": [
                     "Bulgarian",
                     "Croatian",
@@ -747,8 +747,8 @@
                 "ARCH": ["x64", "x86"]
             },
             "Single Language": {
-                "EOL": "",
-                "BUILD": "",
+                "EOL": "2016-01-12",
+                "BUILD": "9600",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -772,19 +772,19 @@
             "EDITION": ["Ultimate","Professional", "Home Premium"],
             "Ultimate": {
                 "EOL": "2020-01-14",
-                "BUILD": "7601.24214.180801-1700",
+                "BUILD": "7601",
                 "LANG": ["en-us"],
                 "ARCH": ["x64", "x86"]
             },
             "Professional": {
                 "EOL": "2020-01-14",
-                "BUILD": "7601.24214.180801-1700",
+                "BUILD": "7601",
                 "LANG": ["en-us"],
                 "ARCH": ["x64", "x86"]
             },
             "Home Premium": {
                 "EOL": "2020-01-14",
-                "BUILD": "7601.24214.180801-1700",
+                "BUILD": "7601",
                 "LANG": ["en-us"],
                 "ARCH": ["x64", "x86"]
             }
