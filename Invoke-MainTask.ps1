@@ -5,6 +5,20 @@
 if (Test-Path -Path $LONG_RECORD_OUTPUT) { Remove-Item -Path $LONG_RECORD_OUTPUT -Force -Confirm:$false }
 $json = Get-Content -Path $PSScriptRoot/lib/windows_index.json | ConvertFrom-Json
 
+<# CLASSES #>
+class WindowsCoreIdentity {
+    [System.Int16]$id = 0
+    [System.Guid]$uuid = [System.Guid]::NewGuid()
+    [System.String]$uid
+    [System.String]$release
+    [System.String]$edition
+    [System.String]$version
+    [System.String]$build
+    [System.String]$arch
+    [System.String]$windowsLcid
+    [System.String]$supportedUntil
+}
+
 $KEYS = $json.WINDOWS_LIST
 
 foreach ($k in $KEYS)
@@ -17,6 +31,7 @@ foreach ($k in $KEYS)
         $EDITION = $json.$k.$r.'EDITION'
         foreach ($e in $EDITION)
         {
+            <# CREATE THE OBJECT HERE#>
             "    - ${e}" | Out-File -FilePath $LONG_RECORD_OUTPUT -Append
             $ARCH = $json.$k.$r.$e.'ARCH'
             foreach ($a in $ARCH)
