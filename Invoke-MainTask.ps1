@@ -31,23 +31,23 @@ foreach ($r in $RELEASE)
 }
 
 <# PROCESS WINDOWS IMAGE #>
-foreach ($r in $RELEASE)
-{
-    <# api:version->$r (ie 21H2) #>
-    foreach ($e in $DATA.$r.'EDITION')
-    {
-        <# api:edition->$e.Split(',') (ie Professional/Pro)#>
-        foreach ($a in $DATA.$r.$e.'ARCH')
-        {
-            Write-Output "Downloading: ${KEY} ${r} ${e} ${a} - English"
-            if ($IsWindows) { $URL = & "$PSScriptRoot\Fido\Fido.ps1" -Win "$KEY" -Rel "$r" -Ed "$e" -Lang "English" -Arch "$a" -GetUrl }
-            else { $URL = & "$PSScriptRoot/Fido/Fido.ps1" -Win "$KEY" -Rel "$r" -Ed "$e" -Lang "English" -Arch "$a" -GetUrl }
-            "$URL"
-            $FILE = Split-Path -Path $URL.Split('?')[0] -Leaf
-            $FILE
-            # Invoke-WebRequest -Uri $URL -OutFile "./data/${FILE}" -UseBasicParsing -SslProtocol Tls13 -Method Get -ContentType "application/json"
-            Pause
-        }
-    }
-}
+# foreach ($r in $RELEASE)
+# {
+#     <# api:version->$r (ie 21H2) #>
+#     foreach ($e in $DATA.$r.'EDITION')
+#     {
+#         <# api:edition->$e.Split(',') (ie Professional/Pro)#>
+#         foreach ($a in $DATA.$r.$e.'ARCH')
+#         {
+#             Write-Output "Downloading: ${KEY} ${r} ${e} ${a} - English"
+#             if ($IsWindows) { $URL = & "$PSScriptRoot\Fido\Fido.ps1" -Win "$KEY" -Rel "$r" -Ed "$e" -Lang "English" -Arch "$a" -GetUrl }
+#             else { $URL = & "$PSScriptRoot/Fido/Fido.ps1" -Win "$KEY" -Rel "$r" -Ed "$e" -Lang "English" -Arch "$a" -GetUrl }
+#             "$URL"
+#             $FILE = Split-Path -Path $URL.Split('?')[0] -Leaf
+#             $FILE
+#             # Invoke-WebRequest -Uri $URL -OutFile "./data/${FILE}" -UseBasicParsing -SslProtocol Tls13 -Method Get -ContentType "application/json"
+#             Pause
+#         }
+#     }
+# }
 #endregion Windows 10
