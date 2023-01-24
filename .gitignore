@@ -10,6 +10,7 @@
 *.userosscache
 *.sln.docstates
 long-record-output.txt
+data/*.iso
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
