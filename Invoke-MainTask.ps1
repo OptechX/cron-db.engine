@@ -32,6 +32,13 @@ foreach ($k in $KEYS)
         foreach ($e in $EDITION)
         {
             <# CREATE THE OBJECT HERE#>
+            $wci = [WindowsCoreIdentity]::new()
+            $wci.release = $KEY
+            wci.edition = $EDITION
+            wci.
+
+
+
             "    - ${e}" | Out-File -FilePath $LONG_RECORD_OUTPUT -Append
             $ARCH = $json.$k.$r.$e.'ARCH'
             foreach ($a in $ARCH)
