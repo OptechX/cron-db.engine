@@ -12,6 +12,7 @@
             "Home/Pro/Edu": {
                 "EOL": "2024-08-10",
                 "BUILD": "22621.525",
+                "ARCH": ["x64"],
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -51,8 +52,7 @@
                     "Thai",
                     "Turkish",
                     "Ukrainian"
-                ],
-                "ARCH": ["x64"]
+                ]
             }
         },
         "21H2": {
@@ -60,6 +60,7 @@
             "Home/Pro/Edu": {
                 "EOL": "2023-10-10",
                 "BUILD": "22000.194",
+                "ARCH": ["x64"],
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -99,8 +100,7 @@
                     "Thai",
                     "Turkish",
                     "Ukrainian"
-                ],
-                "ARCH": ["x64"]
+                ]
             }
         }
     },
@@ -111,6 +111,7 @@
             "Home/Pro/Edu": {
                 "EOL": "2024-05-14",
                 "BUILD": "19045.2006",
+                "ARCH": ["x64", "x86"],
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -150,8 +151,7 @@
                     "Thai",
                     "Turkish",
                     "Ukrainian"
-                ],
-                "ARCH": ["x64", "x86"]
+                ]
             }
         },
         "21H2": {
@@ -159,6 +159,7 @@
             "Home/Pro/Edu": {
                 "EOL": "2023-06-13",
                 "BUILD": "19044.1288",
+                "ARCH": ["x64", "x86"],
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -198,8 +199,7 @@
                     "Thai",
                     "Turkish",
                     "Ukrainian"
-                ],
-                "ARCH": ["x64", "x86"]  
+                ]
             }
         },
         "21H1": {
@@ -207,6 +207,7 @@
             "Home/Pro": {
                 "EOL": "2022-12-13",
                 "BUILD": "19043.985",
+                "ARCH": ["x64", "x86"],
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -246,12 +247,12 @@
                     "Thai",
                     "Turkish",
                     "Ukrainian"
-                ],
-                "ARCH": ["x64", "x86"]       
+                ]
             },
             "Education": {
                 "EOL": "2022-12-13",
                 "BUILD": "19043.985",
+                "ARCH": ["x64", "x86"],
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -291,8 +292,7 @@
                     "Thai",
                     "Turkish",
                     "Ukrainian"
-                ],
-                "ARCH": ["x64", "x86"]  
+                ]
             }
         },
         "20H2": {
@@ -300,6 +300,7 @@
             "Home/Pro": {
                 "EOL": "2022-05-10",
                 "BUILD": "19042.508",
+                "ARCH": ["x64", "x86"],
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -339,12 +340,12 @@
                     "Thai",
                     "Turkish",
                     "Ukrainian"
-                ],
-                "ARCH": ["x64", "x86"]         
+                ]
             },
             "Education": {
                 "EOL": "2022-05-10",
                 "BUILD": "19042.508",
+                "ARCH": ["x64", "x86"],
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -384,8 +385,7 @@
                     "Thai",
                     "Turkish",
                     "Ukrainian"
-                ],
-                "ARCH": ["x64", "x86"]  
+                ]
             }
         },
         "20H1": {
@@ -675,6 +675,7 @@
             "Standard": {
                 "EOL": "2016-01-12",
                 "BUILD": "9600",
+                "ARCH": ["x64", "x86"],
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -712,12 +713,13 @@
                     "Thai",
                     "Turkish",
                     "Ukrainian"
-                ],
-                "ARCH": ["x64", "x86"]
+                ]
+                
             },
             "N": {
                 "EOL": "2016-01-12",
                 "BUILD": "9600",
+                "ARCH": ["x64", "x86"],
                 "LANG": [
                     "Bulgarian",
                     "Croatian",
@@ -743,12 +745,13 @@
                     "Slovenian",
                     "Spanish",
                     "Swedish"
-                ],
-                "ARCH": ["x64", "x86"]
+                ]
+                
             },
             "Single Language": {
                 "EOL": "2016-01-12",
                 "BUILD": "9600",
+                "ARCH": ["x64", "x86"],
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -761,32 +764,33 @@
                     "Thai",
                     "Turkish",
                     "Ukrainian"
-                ],
-                "ARCH": ["x64", "x86"]
+                ]
+                
             }
         }
     },
     "Windows 7": {
         "RELEASE": ["with SP1"],
-        "with SP1": {
+        "SP1": {
             "EDITION": ["Ultimate","Professional", "Home Premium"],
             "Ultimate": {
                 "EOL": "2020-01-14",
                 "BUILD": "7601",
-                "LANG": ["en-us"],
-                "ARCH": ["x64", "x86"]
+                "ARCH": ["x64", "x86"],
+                "LANG": ["en-us"]
+                
             },
             "Professional": {
                 "EOL": "2020-01-14",
                 "BUILD": "7601",
-                "LANG": ["en-us"],
-                "ARCH": ["x64", "x86"]
+                "ARCH": ["x64", "x86"],
+                "LANG": ["en-us"]
             },
             "Home Premium": {
                 "EOL": "2020-01-14",
                 "BUILD": "7601",
-                "LANG": ["en-us"],
-                "ARCH": ["x64", "x86"]
+                "ARCH": ["x64", "x86"],
+                "LANG": ["en-us"]
             }
         }
     }
