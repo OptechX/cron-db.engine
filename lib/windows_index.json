@@ -298,8 +298,8 @@
         "20H2": {
             "EDITION": ["Home/Pro","Education"],
             "Home/Pro": {
-                "EOL": "",
-                "BUILD": "",
+                "EOL": "2022-05-10",
+                "BUILD": "19042.508",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -343,8 +343,8 @@
                 "ARCH": ["x64", "x86"]         
             },
             "Education": {
-                "EOL": "",
-                "BUILD": "",
+                "EOL": "2022-05-10",
+                "BUILD": "19042.508",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -391,8 +391,8 @@
         "20H1": {
             "EDITION": ["Home/Pro","Education"],
             "Home/Pro": {
-                "EOL": "",
-                "BUILD": "",
+                "EOL": "2021-12-14",
+                "BUILD": "19041.264",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -436,8 +436,8 @@
                 "ARCH": ["x64", "x86"]          
             },
             "Education": {
-                "EOL": "",
-                "BUILD": "",
+                "EOL": "2021-12-14",
+                "BUILD": "19041.264",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -484,8 +484,8 @@
         "19H2": {
             "EDITION": ["Home/Pro","Education"],
             "Home/Pro": {
-                "EOL": "",
-                "BUILD": "",
+                "EOL": "2021-05-11",
+                "BUILD": "18363.418",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -529,8 +529,8 @@
                 "ARCH": ["x64", "x86"]         
             },
             "Education": {
-                "EOL": "",
-                "BUILD": "",
+                "EOL": "2021-05-11",
+                "BUILD": "18363.418",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -577,8 +577,8 @@
         "19H1": {
             "EDITION": ["Home/Pro","Education"],
             "Home/Pro": {
-                "EOL": "",
-                "BUILD": "",
+                "EOL": "2020-12-08",
+                "BUILD": "18362.356",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
@@ -622,8 +622,8 @@
                 "ARCH": ["x64", "x86"]       
             },
             "Education": {
-                "EOL": "",
-                "BUILD": "",
+                "EOL": "2020-12-08",
+                "BUILD": "18362.356",
                 "LANG": [
                     "Arabic",
                     "Brazilian Portuguese",
