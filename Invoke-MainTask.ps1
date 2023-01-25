@@ -10,7 +10,7 @@ $json = Get-Content -Path $PSScriptRoot/lib/windows_index.json | ConvertFrom-Jso
 class WindowsCoreIdentity {
     [System.Int16]$id = 0
     [System.Guid]$uuid = [System.Guid]::NewGuid()
-    [System.String]$uid             # 
+    [System.String]$uid
     [System.String]$release         # Windows 10
     [System.String]$edition         # Enterprise/LTSC
     [System.String]$version         # 21H2
@@ -42,7 +42,7 @@ foreach ($k in $KEYS)
                     $gciLcid = "en-US"
                 }
                 { $_ -gt 1 } {
-                    $gciLcid = "en-US,MUI"
+                    $gciLcid = "en-US, MUI"
                 }
             }
 
@@ -64,8 +64,13 @@ foreach ($k in $KEYS)
             $wci.uid = $uid
             $body = $wci | ConvertTo-Json
             $body
-            Invoke-RestMethod -Uri "https://engine.api.prod.optechx-data.com/v1/WindowsCoreIdentity" -Method Post -UseBasicParsing -Body $body -Header @{"Accept" = "application/json"} -ContentType "application/json"
 
+            try {
+                Invoke-RestMethod -Uri "https://engine.api.prod.optechx-data.com/v1/WindowsCoreIdentity/uid/${uid}" -Method Get -Headers @{"Accept" = "application/json"} -ErrorAction Stop
+            }
+            catch {
+                Invoke-RestMethod -Uri "https://engine.api.prod.optechx-data.com/v1/WindowsCoreIdentity" -Method Post -UseBasicParsing -Body $body -Header @{"Accept" = "application/json"} -ContentType "application/json"
+            }
 
             "    - ${e}" | Out-File -FilePath $LONG_RECORD_OUTPUT -Append
             $ARCH = $json.$k.$r.$e.'ARCH'
@@ -83,35 +88,3 @@ foreach ($k in $KEYS)
         }
     }
 }
-
-
-
-# #region Windows 10
-# [System.String]$KEY = "Windows 10"
-# $DATA = $json.$KEY
-# $RELEASE = $DATA.'RELEASE'
-
-# <# WRITE LONG RECORD #>
-
-
-# <# PROCESS WINDOWS IMAGE #>
-# # foreach ($r in $RELEASE)
-# # {
-# #     <# api:version->$r (ie 21H2) #>
-# #     foreach ($e in $DATA.$r.'EDITION')
-# #     {
-# #         <# api:edition->$e.Split(',') (ie Professional/Pro)#>
-# #         foreach ($a in $DATA.$r.$e.'ARCH')
-# #         {
-# #             Write-Output "Downloading: ${KEY} ${r} ${e} ${a} - English"
-# #             if ($IsWindows) { $URL = & "$PSScriptRoot\Fido\Fido.ps1" -Win "$KEY" -Rel "$r" -Ed "$e" -Lang "English" -Arch "$a" -GetUrl }
-# #             else { $URL = & "$PSScriptRoot/Fido/Fido.ps1" -Win "$KEY" -Rel "$r" -Ed "$e" -Lang "English" -Arch "$a" -GetUrl }
-# #             "$URL"
-# #             $FILE = Split-Path -Path $URL.Split('?')[0] -Leaf
-# #             $FILE
-# #             # Invoke-WebRequest -Uri $URL -OutFile "./data/${FILE}" -UseBasicParsing -SslProtocol Tls13 -Method Get -ContentType "application/json"
-# #             Pause
-# #         }
-# #     }
-# # }
-# #endregion Windows 10
