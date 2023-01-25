@@ -770,7 +770,7 @@
         }
     },
     "Windows 7": {
-        "RELEASE": ["with SP1"],
+        "RELEASE": ["SP1"],
         "SP1": {
             "EDITION": ["Ultimate","Professional", "Home Premium"],
             "Ultimate": {
