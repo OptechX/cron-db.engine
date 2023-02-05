@@ -1,5 +1,6 @@
 <# VARIABLES #>
 [System.String]$LONG_RECORD_OUTPUT = "${PSScriptRoot}/long-record-output.txt"
+[System.String]$BASE_URI = "https://engine.api.prod.optechx-data.com"
 $OFS = ', '
 
 <# PRE-PROCESSING #>
@@ -8,83 +9,87 @@ $json = Get-Content -Path $PSScriptRoot/lib/windows_index.json | ConvertFrom-Jso
 
 <# CLASSES #>
 class WindowsCoreIdentity {
-    [System.Int16]$id = 0
-    [System.Guid]$uuid = [System.Guid]::NewGuid()
-    [System.String]$uid
-    [System.String]$release         # Windows 10
-    [System.String]$edition         # Enterprise/LTSC
-    [System.String]$version         # 21H2
-    [System.String]$build           # 190444
-    [System.String]$arch            # x64
-    [System.String]$windowsLcid     # MUI
-    [System.String]$supportedUntil  # 2022-10-23
+  [System.Int16]$id = 0
+  [System.Guid]$uuid = [System.Guid]::NewGuid()
+  [System.String]$uid
+  [System.String]$release              # Windows 10
+  [System.String]$edition              # Enterprise/LTSC
+  [System.String]$version              # 21H2
+  [System.String]$build                # 190444
+  [System.String]$arch                 # x64
+  [System.String]$windowsLcid          # MUI
+  [System.String]$supportedUntil       # 2022-10-23
+  [System.String[]]$suportedLanguages  # ar,en-INTL,en,pl
 }
 
+<# LOAD LANGUAGE STRUCT #>
+. $PSScriptRoot\lang_struct.ps1
+
+<# KEYS #>
 $KEYS = $json.WINDOWS_LIST
+
+
 
 foreach ($k in $KEYS)
 {
-    "${k}" | Out-File -FilePath $LONG_RECORD_OUTPUT -Append
-    $RELEASE = $json.$k.'RELEASE'
-    foreach ($r in $RELEASE)
+  $RELEASE = $json.$k.'RELEASE'
+  foreach ($r in $RELEASE)
+  {
+    $EDITION  = $json.$k.$r.'EDITION'
+    foreach ($e in $EDITION)
     {
-        "  - ${r}" | Out-File -FilePath $LONG_RECORD_OUTPUT -Append
-        $EDITION = $json.$k.$r.'EDITION'
-        foreach ($e in $EDITION)
-        {
-            <# CREATE THE OBJECT HERE#>
-            $lcid = $json.$k.$r.$e.'LANG'
-            $cpuarch = $json.$k.$r.$e.'ARCH'
-            [System.String]$gciLcid = ""
-            switch($lcid.Count)
-            {
-                { $_ -eq 1 } {
-                    $gciLcid = "en-US"
-                }
-                { $_ -gt 1 } {
-                    $gciLcid = "en-US, MUI"
-                }
-            }
+      $EOL = $json.$k.$r.$e.'EOL'
+      $BUILD = $json.$k.$r.$e.'BUILD'
 
-            $wci = [WindowsCoreIdentity]::new()
-            $wci.release = $k
-            $wci.edition = $e
-            $wci.version = $r
-            $wci.build = $json.$k.$r.$e.'BUILD'
-            $wci.arch = "$cpuarch"
-            $wci.windowsLcid = "$lcid"
-            $wci.supportedUntil = $json.$k.$r.$e.'EOL'.ToString()
-            $uid = $wci.release + '.' `
-                    + $wci.edition + '.' `
-                    + $wci.version + '.' `
-                    + $wci.build + '.' `
-                    + "$cpuarch".ToString() + '.' `
-                    + $gciLcid
-            $uid = $uid.Replace(' ','').Replace(',','').ToLower().Replace("en-usmui","en-us_mui")
-            $wci.uid = $uid
-            $body = $wci | ConvertTo-Json
-            $body
+      $arch_list = $json.$k.$r.$e.'ARCH'
+      $lang_list = $json.$k.$r.$e.'LANG'
 
-            try {
-                Invoke-RestMethod -Uri "https://engine.api.prod.optechx-data.com/v1/WindowsCoreIdentity/uid/${uid}" -Method Get -Headers @{"Accept" = "application/json"} -ErrorAction Stop
-            }
-            catch {
-                Invoke-RestMethod -Uri "https://engine.api.prod.optechx-data.com/v1/WindowsCoreIdentity" -Method Post -UseBasicParsing -Body $body -Header @{"Accept" = "application/json"} -ContentType "application/json"
-            }
+      $cpu = "$arch_list".ToString()
 
-            "    - ${e}" | Out-File -FilePath $LONG_RECORD_OUTPUT -Append
-            $ARCH = $json.$k.$r.$e.'ARCH'
-            foreach ($a in $ARCH)
-            {
-                "      - ${a}" | Out-File -FilePath $LONG_RECORD_OUTPUT -Append
-                $EOL = $json.$k.$r.$e.'EOL'
-                $BUILD = $json.$k.$r.$e.'BUILD'
-                $LANG = $json.$k.$r.$e.'LANG'
-                foreach ($l in $LANG)
-                {
-                    "        - ${l}" | Out-File -FilePath $LONG_RECORD_OUTPUT -Append
-                }
-            }
-        }
+      if ($lang_list.Count -gt 1)
+      {
+        $winLCID = "en-US, MUI"
+      }
+      else
+      {
+        $winLCID = "en-US"
+      }
+
+      $lang_array = @()
+      foreach ($l in $lang_list)
+      {
+        $lang_to_add = $langStruct."${l}"
+        $lang_array = $lang_array += @($lang_to_add)
+      }
+          
+      $wci = [WindowsCoreIdentity]::new()
+      $wci.release = $k
+      $wci.edition = $e
+      $wci.version = $r
+      $wci.build = $BUILD
+      $wci.arch = $cpu
+      $wci.windowsLcid = $winLCID
+      $wci.supportedUntil = $EOL.ToString()
+      $uid = $wci.release + '.' `
+              + $wci.edition + '.' `
+              + $wci.version + '.' `
+              + $wci.build + '.' `
+              + $cpu + '.' `
+              + $winLCID
+      $uid = $uid.Replace(' ','').Replace(',','').ToLower().Replace("en-usmui","en-us_mui")
+      $wci.uid = $uid
+      $wci.suportedLanguages = @($lang_array)
+      $body = $wci | ConvertTo-Json
+      $body
+
+      try {
+        Invoke-RestMethod -Uri "${BASE_URI}/v1/WindowsCoreIdentity/uid/${uid}" -Method Get -Headers @{"Accept" = "application/json"} -ErrorAction Stop
+      }
+      catch {
+          Invoke-RestMethod -Uri "${BASE_URI}/v1/WindowsCoreIdentity" -Method Post -UseBasicParsing -Body $body -Header @{"Accept" = "application/json"} -ContentType "application/json"
+      }
+
     }
+  }
 }
+    
