@@ -1,0 +1,17 @@
+name: crontab Main
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v3
+      - name: 🏗️ Build
+        run: ./Invoke-MainTask.ps1
+        shell: pwsh
