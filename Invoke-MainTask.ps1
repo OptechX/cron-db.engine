@@ -19,7 +19,7 @@ class WindowsCoreIdentity {
   [System.String]$arch                 # x64
   [System.String]$windowsLcid          # MUI
   [System.String]$supportedUntil       # 2022-10-23
-  [System.String[]]$suportedLanguages  # ar,en-INTL,en,pl
+  [System.String[]]$supportedLanguages  # ar,en-INTL,en,pl
 }
 
 <# LOAD LANGUAGE STRUCT #>
@@ -78,7 +78,7 @@ foreach ($k in $KEYS)
               + $winLCID
       $uid = $uid.Replace(' ','').Replace(',','').ToLower().Replace("en-usmui","en-us_mui")
       $wci.uid = $uid
-      $wci.suportedLanguages = @($lang_array)
+      $wci.supportedLanguages = @($lang_array)
       $body = $wci | ConvertTo-Json
       $body
 
